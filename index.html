@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Child Learning Centre (CLC) | Pediatric Development & Clinical Therapy</title>
+  
+  <!-- Fonts: Plus Jakarta Sans for warm, friendly legibility -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5 & Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root {
+      --clc-red: #D32F2F;
+      --clc-red-hover: #B71C1C;
+      --clc-red-soft: #FFF1F0;
+      --clc-navy: #0F172A;
+      --clc-navy-light: #1E293B;
+      --clc-bg: #FAF9F6;
+      --clc-surface: #FFFFFF;
+      --clc-text-main: #1E293B;
+      --clc-text-muted: #64748B;
+      --clc-border: #F1F5F9;
+      --clc-whatsapp: #25D366;
+      --clc-radius-card: 16px;
+      --clc-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.08);
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--clc-bg);
+      color: var(--clc-text-main);
+      line-height: 1.6;
+      padding-bottom: 70px;
+      scroll-behavior: smooth;
+    }
+
+    @media (min-width: 992px) {
+      body { padding-bottom: 0; }
+    }
+
+    /* Top Announcement Bar */
+    .top-announcement {
+      background: var(--clc-navy);
+      color: #94A3B8;
+      font-size: 0.8rem;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .top-announcement a {
+      color: #E2E8F0;
+      text-decoration: none;
+    }
+    .top-announcement a:hover {
+      color: #fff;
+    }
+
+    /* Header & Navigation */
+    .clc-header {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+    }
+    .brand-logo-img {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+    }
+    .nav-link {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--clc-navy-light) !important;
+      padding: 8px 12px !important;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .nav-link:hover {
+      color: var(--clc-red) !important;
+      background-color: rgba(211, 47, 47, 0.04);
+    }
+
+    /* Buttons */
+    .btn-clc-primary {
+      background-color: var(--clc-red);
+      color: #fff;
+      font-weight: 700;
+      border-radius: 50px;
+      padding: 10px 24px;
+      border: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(211, 47, 47, 0.3);
+    }
+    .btn-clc-primary:hover {
+      background-color: var(--clc-red-hover);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(211, 47, 47, 0.4);
+    }
+
+    /* Full-Screen Immersive Hero */
+    .hero-fullscreen {
+      position: relative;
+      min-height: calc(100vh - 90px);
+      display: flex;
+      align-items: center;
+      background: 
+        linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.78) 55%, rgba(15, 23, 42, 0.65) 100%),
+        url('assets/centre/WhatsApp Image 2026-10-07 at 7.26.02 PM (1).jpeg') center/cover no-repeat;
+      color: #FFFFFF;
+      padding: 80px 0 60px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      color: #FFCDD2;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: clamp(2.3rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .hero-title span {
+      color: #FF6B6B;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: #E2E8F0;
+      max-width: 650px;
+      line-height: 1.7;
+      margin-bottom: 35px;
+    }
+    .hero-stats-glass {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    /* Infinite Marquee */
+    .marquee-container {
+      background: #FFFFFF;
+      border-bottom: 1px solid #E2E8F0;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 14px 0;
+      position: relative;
+    }
+    .marquee-content {
+      display: inline-flex;
+      align-items: center;
+      gap: 40px;
+      animation: marquee 25s linear infinite;
+    }
+    .marquee-container:hover .marquee-content {
+      animation-play-state: paused;
+    }
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--clc-navy-light);
+    }
+    .marquee-item i {
+      color: var(--clc-red);
+      font-size: 1.1rem;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Metric Cards */
+    .metric-card {
+      background: var(--clc-surface);
+      border-radius: var(--clc-radius-card);
+      border: 1px solid var(--clc-border);
+      box-shadow: var(--clc-shadow);
+      padding: 24px 20px;
+      text-align: center;
+      transition: transform 0.25s ease;
+    }
+    .metric-card:hover {
+      transform: translateY(-4px);
+    }
+    .metric-number {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--clc-red);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    /* Video Cards & Play Button */
+    .video-card {
+      border-radius: var(--clc-radius-card);
+      overflow: hidden;
+      background: #000;
+      position: relative;
+      height: 220px;
+      box-shadow: var(--clc-shadow);
+      cursor: pointer;
+    }
+    .video-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: all 0.4s ease;
+    }
+    .video-card:hover img {
+      opacity: 0.7;
+      transform: scale(1.05);
+    }
+    .play-btn-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 56px;
+      height: 56px;
+      background: rgba(211, 47, 47, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.3);
+    }
+    .video-card:hover .play-btn-circle {
+      background: var(--clc-red);
+      transform: translate(-50%, -50%) scale(1.15);
+      box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+
+    /* Timeline Section */
+    .timeline-track {
+      position: relative;
+      padding: 20px 0;
+    }
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: #E2E8F0;
+      transform: translateX(-50%);
+    }
+    @media (max-width: 768px) {
+      .timeline-track::before {
+        left: 20px;
+      }
+    }
+    .timeline-node {
+      position: relative;
+      margin-bottom: 40px;
+    }
+    .timeline-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--clc-red);
+      position: absolute;
+      left: 50%;
+      top: 15px;
+      transform: translateX(-50%);
+      border: 4px solid #fff;
+      box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2);
+    }
+    @media (max-width: 768px) {
+      .timeline-dot {
+        left: 20px;
+      }
+    }
+
+    /* Centre Location Cards */
+    .branch-card {
+      background: #FFFFFF;
+      border: 1px solid var(--clc-border);
+      border-radius: var(--clc-radius-card);
+      padding: 24px;
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .branch-card:hover {
+      border-color: var(--clc-red);
+      box-shadow: 0 14px 30px -10px rgba(211, 47, 47, 0.12);
+      transform: translateY(-4px);
+    }
+
+    /* Footer */
+    .clc-footer {
+      background: #0B1120;
+      color: #94A3B8;
+      font-size: 0.9rem;
+      padding: 70px 0 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .footer-title {
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    .footer-link {
+      color: #94A3B8;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+      transition: all 0.2s ease;
+    }
+    .footer-link:hover {
+      color: #FFFFFF;
+      padding-left: 4px;
+    }
+
+    /* Subtle Reveal on Scroll */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP INFO BAR -->
+  <div class="top-announcement d-none d-md-block">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <i class="bi bi-clock me-1 text-danger"></i> Mon – Sat: 9:00 AM – 7:30 PM &nbsp;|&nbsp; 
+        <i class="bi bi-geo-alt-fill me-1 text-danger"></i> 7 Centres Across Mumbai, Navi Mumbai, Thane, Nagpur & Nashik
+      </div>
+      <div>
+        <a href="tel:+919004460650" class="me-3"><i class="bi bi-telephone me-1 text-danger"></i> +91 90044 60650</a>
+        <a href="https://wa.me/919004460650" target="_blank"><i class="bi bi-whatsapp me-1 text-success"></i> WhatsApp Support</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. STICKY TOP NAVIGATION -->
+  <header class="clc-header sticky-top">
+    <div class="container d-flex align-items-center justify-content-between py-2">
+      <!-- Logo Display -->
+      <a href="#home" class="d-flex align-items-center text-decoration-none">
+        <img src="assets/logo/CLC LOGO copy.png" alt="Child Learning Centre Logo" class="brand-logo-img me-2" onerror="this.src='assets/logo/CLC LOGO.png'">
+        <div class="d-flex flex-column">
+          <span class="fs-4 fw-bold text-dark lh-1">CLC<span style="color: var(--clc-red);">.</span></span>
+          <span class="text-muted fw-bold" style="font-size: 9px; letter-spacing: 0.08em;">PEDIATRIC DEVELOPMENT</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="d-none d-lg-flex align-items-center gap-1">
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#services" class="nav-link">Therapies</a>
+        <a href="#team" class="nav-link">Team</a>
+        <a href="#timeline" class="nav-link">Milestones</a>
+        <a href="#centres" class="nav-link">Centres</a>
+        <a href="#videos" class="nav-link">Videos</a>
+        <a href="#testimonials" class="nav-link">Reviews</a>
+      </nav>
+
+      <!-- Desktop Call to Action -->
+      <div class="d-flex align-items-center gap-2">
+        <a href="tel:+919004460650" class="btn btn-outline-secondary d-none d-xl-inline-flex align-items-center rounded-pill px-3">
+          <i class="bi bi-telephone me-1"></i> Call Clinic
+        </a>
+        <button class="btn btn-clc-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+          Book Consultation
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. FULL-SCREEN IMMERSIVE HERO WITH REAL BACKGROUND IMAGE -->
+  <section id="home" class="hero-fullscreen">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-8">
+          <div class="hero-badge">
+            <i class="bi bi-patch-check-fill text-danger"></i> 13+ Years of Compassionate Child Rehabilitation
+          </div>
+          <h1 class="hero-title">
+            Every Child Has Potential. <br><span>We Build the Bridge to It.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Specialized pediatric occupational therapy, speech articulation, sensory integration, and autism support across Mumbai, Navi Mumbai, Thane, Nagpur, and Nashik.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <button class="btn btn-clc-primary btn-lg px-4" data-bs-toggle="modal" data-bs-target="#bookingModal">
+              Book Comprehensive Evaluation
+            </button>
+            <a href="https://wa.me/919004460650?text=Hello%20CLC%20Team,%20I%20would%20like%20to%20inquire%20about%20a%20consultation." target="_blank" class="btn btn-outline-light btn-lg px-4 rounded-pill d-inline-flex align-items-center">
+              <i class="bi bi-whatsapp text-success me-2"></i> WhatsApp Consultation
+            </a>
+          </div>
+        </div>
+
+        <!-- Glass Statistics Preview -->
+        <div class="col-lg-4 d-none d-lg-block">
+          <div class="hero-stats-glass">
+            <h5 class="fw-bold mb-3 text-white border-bottom border-light pb-2">Why Parents Trust CLC</h5>
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-check-circle-fill text-danger fs-4 me-3"></i>
+              <div>
+                <strong class="d-block text-white">Multidisciplinary Team</strong>
+                <small class="text-light opacity-75">Occupational & Speech Therapists under one roof</small>
+              </div>
+            </div>
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-check-circle-fill text-danger fs-4 me-3"></i>
+              <div>
+                <strong class="d-block text-white">Full Sensory Gyms</strong>
+                <small class="text-light opacity-75">Swings, bolsters, and fine-motor stations</small>
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="bi bi-check-circle-fill text-danger fs-4 me-3"></i>
+              <div>
+                <strong class="d-block text-white">Parent Collaboration</strong>
+                <small class="text-light opacity-75">Structured debrief after every 40-min session</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. INFINITE MARQUEE STRIP -->
+  <div class="marquee-container">
+    <div class="marquee-content">
+      <div class="marquee-item"><i class="bi bi-stars"></i> 13+ Years Dedicated Pediatric Care</div>
+      <div class="marquee-item"><i class="bi bi-heart-fill"></i> 6,000+ Children Guided Successfully</div>
+      <div class="marquee-item"><i class="bi bi-hospital"></i> 7+ Centres in Mumbai, Thane & Maharashtra</div>
+      <div class="marquee-item"><i class="bi bi-person-badge-fill"></i> 25+ Certified Clinical Specialists</div>
+      <div class="marquee-item"><i class="bi bi-star-fill text-warning"></i> 4.8★ Verified Google Parent Reviews</div>
+      <div class="marquee-item"><i class="bi bi-shield-fill-check"></i> Evidence-Based 1-on-1 Milestone Programs</div>
+      
+      <!-- Loop duplicate -->
+      <div class="marquee-item"><i class="bi bi-stars"></i> 13+ Years Dedicated Pediatric Care</div>
+      <div class="marquee-item"><i class="bi bi-heart-fill"></i> 6,000+ Children Guided Successfully</div>
+      <div class="marquee-item"><i class="bi bi-hospital"></i> 7+ Centres in Mumbai, Thane & Maharashtra</div>
+      <div class="marquee-item"><i class="bi bi-person-badge-fill"></i> 25+ Certified Clinical Specialists</div>
+      <div class="marquee-item"><i class="bi bi-star-fill text-warning"></i> 4.8★ Verified Google Parent Reviews</div>
+      <div class="marquee-item"><i class="bi bi-shield-fill-check"></i> Evidence-Based 1-on-1 Milestone Programs</div>
+    </div>
+  </div>
+
+  <!-- 4. TRUST METRICS STRIP -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-3 reveal-on-scroll">
+        <div class="col-6 col-md-3">
+          <div class="metric-card">
+            <div class="metric-number"><span class="counter" data-target="13">0</span>+</div>
+            <div class="text-muted small fw-semibold">Years of Dedicated Care</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="metric-card">
+            <div class="metric-number"><span class="counter" data-target="6000">0</span>+</div>
+            <div class="text-muted small fw-semibold">Children Supported</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="metric-card">
+            <div class="metric-number"><span class="counter" data-target="25">0</span>+</div>
+            <div class="text-muted small fw-semibold">Specialist Therapists</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="metric-card">
+            <div class="metric-number">4.8★</div>
+            <div class="text-muted small fw-semibold">Google Parent Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ABOUT US -->
+  <section id="about" class="py-5 bg-white">
+    <div class="container">
+      <div class="row align-items-center g-5 reveal-on-scroll">
+        <div class="col-lg-6">
+          <img src="assets/team/DSC_1532.JPG" alt="CLC Multidisciplinary Team" class="img-fluid rounded-4 shadow-lg w-100" onerror="this.src='https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=800&q=80'">
+        </div>
+        <div class="col-lg-6">
+          <span class="text-uppercase fw-bold small text-danger">Multidisciplinary Clinical Care</span>
+          <h2 class="fw-bold mt-1 mb-3">Empowering Growth Through Science & Compassion</h2>
+          <p class="text-muted">
+            Founded with the belief that developmental delays are not permanent barriers, CLC brings together Occupational Therapists, Speech-Language Pathologists, and Remedial Educators under one roof.
+          </p>
+          <p class="text-muted">
+            Our multi-tier approach integrates clinical evaluations, sensory-rich play, and home guidance to support children through every developmental milestone.
+          </p>
+          <div class="row g-3 mt-2">
+            <div class="col-sm-6">
+              <div class="p-3 bg-light rounded-3 border">
+                <i class="bi bi-shield-check text-danger fs-4 mb-2"></i>
+                <h6 class="fw-bold mb-1">Tailored 1-on-1 Care</h6>
+                <p class="text-muted small mb-0">Custom milestone roadmaps built around your child’s individual pace.</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="p-3 bg-light rounded-3 border">
+                <i class="bi bi-heart-pulse text-danger fs-4 mb-2"></i>
+                <h6 class="fw-bold mb-1">Sensory Gyms</h6>
+                <p class="text-muted small mb-0">Suspended vestibular swings, bolster barrels, and fine-motor stations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CLINICAL TEAM (YOUR PEDIATRIC SUPPORT TEAM) -->
+  <section id="team" class="py-5" style="background-color: #FAF9F6;">
+    <div class="container">
+      <div class="text-center max-w-700 mx-auto mb-5 reveal-on-scroll">
+        <span class="text-uppercase fw-bold small text-danger">Experienced Practitioners</span>
+        <h2 class="fw-bold">Your Pediatric Support Team</h2>
+        <p class="text-muted">Experienced, licensed clinicians committed to your child's functional milestones.</p>
+      </div>
+
+      <div class="row g-4 reveal-on-scroll">
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center p-3">
+            <img src="assets/team/DSC_1526.JPG" class="rounded-3 mb-3 mx-auto" alt="Senior Therapist" style="height: 250px; width: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1594824813626-d62f689c1e7a?auto=format&fit=crop&w=500&q=80'">
+            <h5 class="fw-bold mb-1">Lead Clinical Therapist</h5>
+            <span class="text-danger small fw-semibold mb-2 d-block">Occupational & Sensory Specialist</span>
+            <p class="text-muted small">Specialized in pediatric reflex integration, sensory diets, and classroom motor adaptation.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center p-3">
+            <img src="assets/team/DSC_1532.JPG" class="rounded-3 mb-3 mx-auto" alt="Speech Pathologist" style="height: 250px; width: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=500&q=80'">
+            <h5 class="fw-bold mb-1">Pediatric Speech Lead</h5>
+            <span class="text-danger small fw-semibold mb-2 d-block">Speech-Language Pathologist</span>
+            <p class="text-muted small">Focused on oral-placement mechanics, bilingual communication, and social reciprocity.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center p-3">
+            <img src="assets/centre/WhatsApp Image 2026-10-07 at 7.26.04 PM (1).jpeg" class="rounded-3 mb-3 mx-auto" alt="Remedial Educator" style="height: 250px; width: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80'">
+            <h5 class="fw-bold mb-1">Special Education Consultant</h5>
+            <span class="text-danger small fw-semibold mb-2 d-block">Remedial Literacy & Phonics</span>
+            <p class="text-muted small">Guiding dyslexic and attention-challenged learners with structured multisensory instruction.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. OUR JOURNEY & MILESTONES (TIMELINE) -->
+  <section id="timeline" class="py-5 bg-white">
+    <div class="container">
+      <div class="text-center max-w-700 mx-auto mb-5 reveal-on-scroll">
+        <span class="text-uppercase fw-bold small text-danger">History of Dedication</span>
+        <h2 class="fw-bold">Our Journey & Milestones</h2>
+        <p class="text-muted">Over a decade of clinical expansion, supporting families across Maharashtra.</p>
+      </div>
+
+      <div class="timeline-track reveal-on-scroll">
+        <!-- Milestone 1 -->
+        <div class="row timeline-node align-items-center">
+          <div class="col-md-5 text-md-end">
+            <h5 class="fw-bold mb-1 text-danger">2013 • Founding in Nerul</h5>
+            <p class="text-muted small mb-0">Started our first pediatric therapy center in Nerul, Navi Mumbai, with a focus on comprehensive occupational care.</p>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="col-md-5 offset-md-2 mt-2 mt-md-0">
+            <span class="badge bg-light text-dark border px-3 py-2">First Clinic Established</span>
+          </div>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="row timeline-node align-items-center">
+          <div class="col-md-5 text-md-end order-md-2">
+            <h5 class="fw-bold mb-1 text-danger">2018 • Multidisciplinary Expansion</h5>
+            <p class="text-muted small mb-0">Integrated specialized Speech-Language Pathology and Remedial Education into all intervention tracks.</p>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="col-md-5 order-md-1 text-md-end mt-2 mt-md-0">
+            <span class="badge bg-light text-dark border px-3 py-2">Speech & Special Ed Integrated</span>
+          </div>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="row timeline-node align-items-center">
+          <div class="col-md-5 text-md-end">
+            <h5 class="fw-bold mb-1 text-danger">2021 • Expanding Across Maharashtra</h5>
+            <p class="text-muted small mb-0">Opened dedicated centres in Thane, Chembur, and Vashi, bringing therapy closer to local communities.</p>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="col-md-5 offset-md-2 mt-2 mt-md-0">
+            <span class="badge bg-light text-dark border px-3 py-2">Mumbai & Thane Reach</span>
+          </div>
+        </div>
+
+        <!-- Milestone 4 -->
+        <div class="row timeline-node align-items-center">
+          <div class="col-md-5 text-md-end order-md-2">
+            <h5 class="fw-bold mb-1 text-danger">2026 • 6,000+ Children Supported</h5>
+            <p class="text-muted small mb-0">Operating 7+ centres including Nagpur and Nashik, with 25+ licensed therapists delivering care daily.</p>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="col-md-5 order-md-1 text-md-end mt-2 mt-md-0">
+            <span class="badge bg-danger text-white px-3 py-2">6,000+ Families Empowered</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. WATCH OUR CLINICAL INSIGHTS (VIDEOS SECTION) -->
+  <section id="videos" class="py-5" style="background-color: #FAF9F6;">
+    <div class="container">
+      <div class="text-center max-w-700 mx-auto mb-5 reveal-on-scroll">
+        <span class="text-uppercase fw-bold small text-danger">Clinical Guidance & Insights</span>
+        <h2 class="fw-bold">Watch Our Clinical Insights</h2>
+        <p class="text-muted">Take a look inside our therapy sessions and parent guidance workshops.</p>
+      </div>
+
+      <div class="row g-4 reveal-on-scroll">
+        <!-- Video Card 1 -->
+        <div class="col-md-4">
+          <div class="video-card" onclick="openVideoModal('https://youtu.be/D1gxGckdo4c')">
+            <img src="assets/centre/WhatsApp Image 2026-10-07 at 7.26.02 PM.jpeg" alt="Sensory Integration Video" onerror="this.src='https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=600&q=80'">
+            <div class="play-btn-circle"><i class="bi bi-play-fill"></i></div>
+          </div>
+          <div class="mt-3">
+            <h6 class="fw-bold mb-1">How Sensory Integration Regulates Attention</h6>
+            <p class="text-muted small">Learn how vestibular swings and deep pressure help calm sensory-overwhelmed children.</p>
+          </div>
+        </div>
+
+        <!-- Video Card 2 -->
+        <div class="col-md-4">
+          <div class="video-card" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+            <img src="assets/centre/WhatsApp Image 2026-10-07 at 7.26.04 PM (1).jpeg" alt="Speech Development Video" onerror="this.src='https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=600&q=80'">
+            <div class="play-btn-circle"><i class="bi bi-play-fill"></i></div>
+          </div>
+          <div class="mt-3">
+            <h6 class="fw-bold mb-1">Encouraging Speech Milestones at Home</h6>
+            <p class="text-muted small">Key daily conversational games that help toddlers express full phrases.</p>
+          </div>
+        </div>
+
+        <!-- Video Card 3 -->
+        <div class="col-md-4">
+          <div class="video-card" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+            <img src="assets/team/DSC_1532.JPG" alt="Pencil Grip & Fine Motor Video" onerror="this.src='https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&q=80'">
+            <div class="play-btn-circle"><i class="bi bi-play-fill"></i></div>
+          </div>
+          <div class="mt-3">
+            <h6 class="fw-bold mb-1">Correcting Pencil Grip & Handwriting Strain</h6>
+            <p class="text-muted small">Practical exercises to build fine motor endurance for classroom success.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. THERAPIES (DYNAMIC SERVICE GRID) -->
+  <section id="services" class="py-5 bg-white">
+    <div class="container">
+      <div class="text-center max-w-700 mx-auto mb-5 reveal-on-scroll">
+        <span class="text-uppercase fw-bold small text-danger">Core Disciplines</span>
+        <h2 class="fw-bold">Our Child Development Therapies</h2>
+        <p class="text-muted">Structured intervention protocols led by licensed clinical practitioners.</p>
+      </div>
+      
+      <!-- Rendered via JavaScript -->
+      <div class="row g-4" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <!-- 10. FIND A CENTRE NEAR YOU (EXPANDED & DYNAMIC) -->
+  <section id="centres" class="py-5" style="background-color: #FAF9F6;">
+    <div class="container">
+      <div class="text-center max-w-700 mx-auto mb-4 reveal-on-scroll">
+        <span class="text-uppercase fw-bold small text-danger">Convenient Access</span>
+        <h2 class="fw-bold">Find a Centre Near You</h2>
+        <p class="text-muted">Sensory-equipped clinics operating across Mumbai, Navi Mumbai, Thane, Nagpur, and Nashik.</p>
+      </div>
+
+      <!-- City Filters -->
+      <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap" id="centreFilterBtns">
+        <button class="btn btn-sm btn-dark rounded-pill px-3" onclick="filterCentres('all', this)">All Centres</button>
+        <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" onclick="filterCentres('Navi Mumbai', this)">Navi Mumbai</button>
+        <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" onclick="filterCentres('Mumbai / Thane', this)">Mumbai & Thane</button>
+        <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" onclick="filterCentres('Other', this)">Nagpur & Nashik</button>
+      </div>
+
+      <!-- Branch Cards Grid -->
+      <div class="row g-4" id="centresGrid"></div>
+    </div>
+  </section>
+
+  <!-- 11. STORIES FROM OUR FAMILIES (WRITTEN & VIDEO REVIEWS) -->
+  <section id="testimonials" class="py-5 bg-white">
+    <div class="container">
+      <div class="text-center max-w-700 mx-auto mb-5 reveal-on-scroll">
+        <span class="text-uppercase fw-bold small text-danger">Real Parent Experiences</span>
+        <h2 class="fw-bold">Stories from Our Families</h2>
+        <p class="text-muted">Read feedback from parents whose children reached meaningful milestones with CLC.</p>
+      </div>
+
+      <div class="row g-4 reveal-on-scroll">
+        <!-- Review Card 1 -->
+        <div class="col-md-4">
+          <div class="p-4 bg-light rounded-4 border shadow-sm h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <div class="text-warning small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <span class="badge bg-white text-danger border">Nerul Branch</span>
+              </div>
+              <p class="small text-muted fst-italic">"My son had speech delay and difficulty sitting through classroom tasks. Within 6 months at CLC Nerul, his vocabulary improved tremendously and he loves going to sessions."</p>
+            </div>
+            <div class="border-top pt-3 d-flex align-items-center justify-content-between">
+              <div>
+                <span class="fw-bold small d-block">Priya S.</span>
+                <span class="text-muted" style="font-size: 11px;">Parent of 4-yr-old</span>
+              </div>
+              <button class="btn btn-sm btn-outline-danger rounded-pill" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <i class="bi bi-play-circle me-1"></i> Watch Video
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review Card 2 -->
+        <div class="col-md-4">
+          <div class="p-4 bg-light rounded-4 border shadow-sm h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <div class="text-warning small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <span class="badge bg-white text-danger border">Thane Branch</span>
+              </div>
+              <p class="small text-muted fst-italic">"The sensory integration setup is great. The therapists are patient, never rush through concerns, and teach us exactly how to continue the exercises at home."</p>
+            </div>
+            <div class="border-top pt-3 d-flex align-items-center justify-content-between">
+              <div>
+                <span class="fw-bold small d-block">Rahul K.</span>
+                <span class="text-muted" style="font-size: 11px;">Parent of 6-yr-old</span>
+              </div>
+              <button class="btn btn-sm btn-outline-danger rounded-pill" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <i class="bi bi-play-circle me-1"></i> Watch Video
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review Card 3 -->
+        <div class="col-md-4">
+          <div class="p-4 bg-light rounded-4 border shadow-sm h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <div class="text-warning small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <span class="badge bg-white text-danger border">Chembur Branch</span>
+              </div>
+              <p class="small text-muted fst-italic">"Their multidisciplinary approach made a huge difference for our child’s school transition. Very reassuring and organized team."</p>
+            </div>
+            <div class="border-top pt-3 d-flex align-items-center justify-content-between">
+              <div>
+                <span class="fw-bold small d-block">Sneha M.</span>
+                <span class="text-muted" style="font-size: 11px;">Parent of 5-yr-old</span>
+              </div>
+              <button class="btn btn-sm btn-outline-danger rounded-pill" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <i class="bi bi-play-circle me-1"></i> Watch Video
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. ENHANCED PRODUCTION FOOTER -->
+  <footer class="clc-footer">
+    <div class="container">
+      <div class="row g-4 mb-5">
+        <!-- Col 1: Brand & Accreditation -->
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center mb-3">
+            <img src="assets/logo/CLC LOGO copy.png" alt="CLC Logo" height="42" class="me-2" onerror="this.src='assets/logo/CLC LOGO.png'">
+            <span class="fs-4 fw-bold text-white">CLC<span style="color: var(--clc-red);">.</span></span>
+          </div>
+          <p class="small text-muted mb-3 pe-lg-4">
+            Child Learning Centre (CLC) provides personalized, evidence-based developmental and pediatric therapies across Maharashtra since 2013.
+          </p>
+          <div class="d-flex gap-2">
+            <span class="badge bg-danger text-white px-2 py-1 small">13+ Years Trusted</span>
+            <span class="badge bg-dark border text-light px-2 py-1 small">25+ Specialists</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="col-6 col-lg-2">
+          <div class="footer-title">Navigation</div>
+          <a href="#about" class="footer-link">About Us</a>
+          <a href="#services" class="footer-link">Therapies</a>
+          <a href="#team" class="footer-link">Clinical Team</a>
+          <a href="#timeline" class="footer-link">Our Journey</a>
+          <a href="#centres" class="footer-link">Centres</a>
+          <a href="#testimonials" class="footer-link">Parent Reviews</a>
+        </div>
+
+        <!-- Col 3: Therapies -->
+        <div class="col-6 col-lg-3">
+          <div class="footer-title">Therapies</div>
+          <a href="#services" class="footer-link">Occupational Therapy</a>
+          <a href="#services" class="footer-link">Speech & Language Therapy</a>
+          <a href="#services" class="footer-link">Sensory Integration</a>
+          <a href="#services" class="footer-link">ADHD & Attention Support</a>
+          <a href="#services" class="footer-link">Remedial Education</a>
+          <a href="#services" class="footer-link">Developmental Screening</a>
+        </div>
+
+        <!-- Col 4: Central Contacts -->
+        <div class="col-lg-3">
+          <div class="footer-title">Contact & Helpline</div>
+          <p class="small mb-2 text-light"><i class="bi bi-geo-alt text-danger me-2"></i>Head Office: Sector 29, Nerul East, Navi Mumbai</p>
+          <p class="small mb-2"><a href="tel:+919004460650" class="text-light text-decoration-none"><i class="bi bi-telephone text-danger me-2"></i>+91 90044 60650</a></p>
+          <p class="small mb-3"><a href="https://wa.me/919004460650" class="text-light text-decoration-none"><i class="bi bi-whatsapp text-success me-2"></i>WhatsApp Support</a></p>
+          <button class="btn btn-sm btn-clc-primary w-100 rounded-pill" data-bs-toggle="modal" data-bs-target="#bookingModal">
+            Book Appointment
+          </button>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary pt-3 d-flex flex-column flex-md-row justify-content-between align-items-center small text-muted">
+        <div>© 2026 Child Learning Centre. All rights reserved.</div>
+        <div class="mt-2 mt-md-0">
+          <span class="me-3">Confidential Clinical Privacy Protected</span>
+          <span>Made for Neurodiverse Families</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 13. MOBILE BOTTOM ACTION BAR -->
+  <div class="mobile-action-bar d-lg-none fixed-bottom bg-white border-top py-2 px-3 shadow-lg">
+    <div class="row g-2">
+      <div class="col-4">
+        <a href="tel:+919004460650" class="btn btn-light w-100 py-2 d-flex flex-column align-items-center text-decoration-none rounded-3">
+          <i class="bi bi-telephone-fill text-secondary mb-1"></i>
+          <span style="font-size: 11px;" class="fw-semibold">Call</span>
+        </a>
+      </div>
+      <div class="col-4">
+        <a href="https://wa.me/919004460650?text=Hello%20CLC%20Team,%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" class="btn btn-light w-100 py-2 d-flex flex-column align-items-center text-decoration-none rounded-3">
+          <i class="bi bi-whatsapp text-success mb-1"></i>
+          <span style="font-size: 11px;" class="fw-semibold">WhatsApp</span>
+        </a>
+      </div>
+      <div class="col-4">
+        <button class="btn btn-clc-primary w-100 py-2 d-flex flex-column align-items-center rounded-3" data-bs-toggle="modal" data-bs-target="#bookingModal">
+          <i class="bi bi-calendar-check-fill mb-1"></i>
+          <span style="font-size: 11px;">Book</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14. VIDEO PLAYER MODAL -->
+  <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark border-0 rounded-4 overflow-hidden">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" onclick="closeVideoModal()"></button>
+        </div>
+        <div class="modal-body p-0">
+          <div class="ratio ratio-16x9">
+            <iframe id="videoIframe" src="" allowfullscreen allow="autoplay"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15. BOOKING MODAL -->
+  <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 border-0 shadow">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold" id="bookingModalLabel">Book a Child Evaluation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <p class="text-muted small mb-3">Leave your details and our clinical coordinator will reach out to schedule an appointment.</p>
+          <form id="consultForm" onsubmit="handleFormSubmit(event)">
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Parent / Guardian Name</label>
+              <input type="text" id="parentName" class="form-control rounded-3" placeholder="Enter your full name" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Phone Number</label>
+              <input type="tel" id="parentPhone" class="form-control rounded-3" placeholder="e.g. 9876543210" required>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-6">
+                <label class="form-label small fw-semibold">Child's Age</label>
+                <select id="childAge" class="form-select rounded-3" required>
+                  <option value="">Select age</option>
+                  <option value="2-4">2 – 4 Years</option>
+                  <option value="5-7">5 – 7 Years</option>
+                  <option value="8-12">8 – 12 Years</option>
+                  <option value="13+">13+ Years</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <label class="form-label small fw-semibold">Preferred Centre</label>
+                <select id="preferredCentre" class="form-select rounded-3" required>
+                  <option value="">Select branch</option>
+                  <option value="Nerul">Nerul (HQ)</option>
+                  <option value="Thane">Thane</option>
+                  <option value="Chembur">Chembur</option>
+                  <option value="Vashi">Vashi</option>
+                  <option value="Ulwe">Ulwe</option>
+                  <option value="Nagpur">Nagpur</option>
+                  <option value="Nashik">Nashik</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Primary Area of Concern</label>
+              <select id="concernType" class="form-select rounded-3">
+                <option value="Speech & Communication">Speech Delay / Communication</option>
+                <option value="Occupational / Sensory">Sensory & Motor Integration</option>
+                <option value="ADHD / Attention">ADHD & Attention Focus</option>
+                <option value="Special Education">Remedial / Learning Difficulties</option>
+                <option value="General Screening">General Developmental Screening</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-clc-primary w-100 py-2 rounded-3 mt-2">
+              Send Consultation Request
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dynamic JS Data & Handlers -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // DYNAMIC DATA: THERAPIES
+    const services = [
+      {
+        title: "Pediatric Occupational Therapy",
+        img: "assets/servicess/ot.jpeg",
+        desc: "Fostering everyday motor coordination, self-care routines, and balance through purposeful play."
+      },
+      {
+        title: "Sensory Processing Integration",
+        img: "assets/servicess/sensory.jpeg",
+        desc: "Helping children process touch, sound, balance, and spatial awareness comfortably."
+      },
+      {
+        title: "Speech & Language Therapy",
+        img: "assets/servicess/speech.jpeg",
+        desc: "Strengthening verbal expression, vocabulary, clarity, articulation, and social dialogue."
+      },
+      {
+        title: "ADHD & Behavioral Focus",
+        img: "assets/servicess/adhd.jpeg",
+        desc: "Targeted strategies to build sustained attention, self-regulation, and classroom engagement."
+      }
+    ];
+
+    // DYNAMIC DATA: CENTRES
+    const centres = [
+      {
+        name: "Nerul Centre (Head Office)",
+        category: "Navi Mumbai",
+        address: "Shop No. 4&5, Besides CSB Bank, Sai Sthan Apt, Sector 29, Nerul East, Navi Mumbai",
+        phone: "+91 90044 60650",
+        mapsQuery: "Child+Learning+Centre+Nerul"
+      },
+      {
+        name: "Thane Centre",
+        category: "Mumbai / Thane",
+        address: "Near Teen Hath Naka, Thane West, Maharashtra",
+        phone: "+91 90044 60650",
+        mapsQuery: "Child+Learning+Centre+Thane"
+      },
+      {
+        name: "Chembur Centre",
+        category: "Mumbai / Thane",
+        address: "Central Avenue Road, Chembur, Mumbai",
+        phone: "+91 90044 60650",
+        mapsQuery: "Child+Learning+Centre+Chembur"
+      },
+      {
+        name: "Vashi Centre",
+        category: "Navi Mumbai",
+        address: "Sector 17, Vashi, Navi Mumbai",
+        phone: "+91 90044 60650",
+        mapsQuery: "Child+Learning+Centre+Vashi"
+      },
+      {
+        name: "Nagpur Centre",
+        category: "Other",
+        address: "Ramdaspeth, Nagpur, Maharashtra",
+        phone: "+91 90044 60650",
+        mapsQuery: "Child+Learning+Centre+Nagpur"
+      },
+      {
+        name: "Nashik Centre",
+        category: "Other",
+        address: "College Road, Nashik, Maharashtra",
+        phone: "+91 90044 60650",
+        mapsQuery: "Child+Learning+Centre+Nashik"
+      }
+    ];
+
+    // 1. Render Services
+    function renderServices() {
+      const container = document.getElementById('servicesGrid');
+      if (!container) return;
+
+      container.innerHTML = services.map(s => `
+        <div class="col-12 col-sm-6 col-lg-3 reveal-on-scroll">
+          <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden" style="background:#fff;">
+            <div style="height:190px; background:#e2e8f0; overflow:hidden;">
+              <img src="${s.img}" alt="${s.title}" style="width:100%; height:100%; object-fit:cover;" onerror="this.src='https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=600&q=80'">
+            </div>
+            <div class="card-body p-3 d-flex flex-column justify-content-between">
+              <div>
+                <h5 class="fw-bold fs-6 mb-2 text-dark">${s.title}</h5>
+                <p class="text-muted small mb-3">${s.desc}</p>
+              </div>
+              <button class="btn btn-sm btn-outline-danger w-100 rounded-pill" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                Inquire for Therapy
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // 2. Render Centres
+    function renderCentres(filter = 'all') {
+      const container = document.getElementById('centresGrid');
+      if (!container) return;
+
+      const filtered = filter === 'all' ? centres : centres.filter(c => c.category === filter);
+      
+      container.innerHTML = filtered.map(c => `
+        <div class="col-md-6 col-lg-4">
+          <div class="branch-card">
+            <div>
+              <span class="badge bg-light text-danger border mb-2">${c.category}</span>
+              <h5 class="fw-bold mb-2">${c.name}</h5>
+              <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill text-danger me-1"></i>${c.address}</p>
+            </div>
+            <div class="d-flex gap-2 pt-2 border-top">
+              <a href="https://maps.google.com/?q=${c.mapsQuery}" target="_blank" class="btn btn-outline-secondary btn-sm flex-fill rounded-pill">
+                <i class="bi bi-pin-map me-1"></i> Map
+              </a>
+              <a href="tel:${c.phone.replace(/\s+/g, '')}" class="btn btn-outline-danger btn-sm flex-fill rounded-pill">
+                <i class="bi bi-telephone me-1"></i> Call
+              </a>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterCentres(cat, buttonElement) {
+      document.querySelectorAll('#centreFilterBtns button').forEach(btn => {
+        btn.classList.remove('btn-dark');
+        btn.classList.add('btn-outline-secondary');
+      });
+
+      if (buttonElement) {
+        buttonElement.classList.remove('btn-outline-secondary');
+        buttonElement.classList.add('btn-dark');
+      }
+
+      renderCentres(cat);
+    }
+
+    // 3. Video Modal Functions
+    function openVideoModal(url) {
+      const iframe = document.getElementById('videoIframe');
+      iframe.src = url;
+      const modal = new bootstrap.Modal(document.getElementById('videoModal'));
+      modal.show();
+    }
+
+    function closeVideoModal() {
+      const iframe = document.getElementById('videoIframe');
+      iframe.src = '';
+    }
+
+    // 4. Modal Form Handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('parentName').value.trim();
+      const phone = document.getElementById('parentPhone').value.trim();
+      const age = document.getElementById('childAge').value;
+      const centre = document.getElementById('preferredCentre').value;
+      const concern = document.getElementById('concernType').value;
+
+      const messageText = `Hello CLC Team,\n\nI would like to book a consultation:\n• Parent Name: ${name}\n• Phone: ${phone}\n• Child's Age: ${age}\n• Preferred Centre: ${centre}\n• Primary Concern: ${concern}`;
+      const encodedMessage = encodeURIComponent(messageText);
+
+      window.open(`https://wa.me/919004460650?text=${encodedMessage}`, '_blank');
+
+      e.target.reset();
+      const modalEl = document.getElementById('bookingModal');
+      const modal = bootstrap.Modal.getInstance(modalEl);
+      if (modal) modal.hide();
+    }
+
+    // 5. Scroll Reveal & Counters
+    function initScrollEffects() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+
+            const counters = entry.target.querySelectorAll('.counter');
+            counters.forEach(c => {
+              const target = +c.getAttribute('data-target');
+              let count = 0;
+              const step = Math.ceil(target / 40);
+              const timer = setInterval(() => {
+                count += step;
+                if (count >= target) {
+                  c.innerText = target.toLocaleString('en-IN');
+                  clearInterval(timer);
+                } else {
+                  c.innerText = count.toLocaleString('en-IN');
+                }
+              }, 30);
+            });
+
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderServices();
+      renderCentres('all');
+      initScrollEffects();
+    });
+  </script>
+</body>
+</html>
