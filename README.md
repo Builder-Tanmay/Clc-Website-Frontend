@@ -9,7 +9,7 @@ Static site: HTML + CSS + JS (fonts: Fraunces + Nunito Sans via Google Fonts), B
 
 ## Setup
 Put these files in the project root next to the existing `assets/` folder
-(`assets/logo`, `assets/team`, `assets/centre`, `assets/servicess`). Image paths are unchanged.
+(`assets/logo`, `assets/team`, `assets/centre`, `assets/services`). Image paths are unchanged.
 
 ## Common edits
 - Therapies and centres: edit the `services` and `centres` arrays at the top of `js/main.js`.

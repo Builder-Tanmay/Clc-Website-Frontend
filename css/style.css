@@ -189,7 +189,7 @@ a:hover { color: var(--clc-red-dark); }
 }
 .hero__bg-img {
   position: absolute; inset: 0;
-  background: url('../assets/centre/WhatsApp Image 2026-10-07 at 7.26.02 PM (1).jpeg') center / cover no-repeat;
+  background: url('../assets/centre/centre-1.jpg') center / cover no-repeat;
   animation: kenburns 16s ease-out both;
 }
 .hero::after {
@@ -531,11 +531,10 @@ html.js .steps li.is-active::before { animation: pop 0.5s var(--ease) both; }
 }
 [data-reveal="fade"] { transform: none; }
 [data-reveal="clip"] {
-  opacity: 1; transform: none; clip-path: inset(0 0 100% 0 round 16px);
-  transition: clip-path 1.2s var(--ease); transition-delay: var(--d, 0ms);
+  opacity: 0; transform: translate3d(0, 20px, 0) scale(0.97);
+  transition: opacity 0.9s var(--ease), transform 1.1s var(--ease); transition-delay: var(--d, 0ms);
 }
 [data-reveal].is-visible { opacity: 1; transform: none; will-change: auto; }
-[data-reveal="clip"].is-visible { clip-path: inset(0 0 0 0 round 16px); }
 
 /* ---------- Small screens ---------- */
 @media (max-width: 575.98px) {

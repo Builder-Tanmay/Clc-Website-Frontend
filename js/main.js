@@ -12,16 +12,16 @@
      Content
      ====================================================== */
   var services = [
-    { title: 'Pediatric Occupational Therapy', img: 'assets/servicess/ot.jpeg',
+    { title: 'Pediatric Occupational Therapy', img: 'assets/services/ot.jpg',
       desc: 'Builds everyday motor coordination, self-care routines and balance through purposeful play.',
       concern: 'Occupational / Sensory' },
-    { title: 'Sensory Processing Integration', img: 'assets/servicess/sensory.jpeg',
+    { title: 'Sensory Processing Integration', img: 'assets/services/sensory.jpg',
       desc: 'Helps children cope comfortably with touch, sound, movement and space around them.',
       concern: 'Occupational / Sensory' },
-    { title: 'Speech & Language Therapy', img: 'assets/servicess/speech.jpeg',
+    { title: 'Speech & Language Therapy', img: 'assets/services/speech.jpg',
       desc: 'Strengthens vocabulary, clear pronunciation and conversation with others.',
       concern: 'Speech & Communication' },
-    { title: 'ADHD & Behavioural Support', img: 'assets/servicess/adhd.jpeg',
+    { title: 'ADHD & Behavioural Support', img: 'assets/services/adhd.jpg',
       desc: 'Practical strategies for sustained attention, self-regulation and settling into class.',
       concern: 'ADHD / Attention' }
   ];
@@ -59,7 +59,7 @@
     if (!el) return;
     el.innerHTML = services.map(function (s) {
       return '<div class="col-12 col-sm-6 col-lg-3"><article class="tile">' +
-        '<div class="tile__media"><img class="tile__img" src="' + s.img + '" alt="" loading="lazy" decoding="async"></div>' +
+        '<div class="tile__media"><img class="tile__img" src="' + s.img + '" alt="" decoding="async"></div>' +
         '<div class="tile__body"><h3>' + s.title + '</h3><p>' + s.desc + '</p>' +
         '<button type="button" class="link-btn tile__cta" data-concern="' + s.concern + '">Ask about this therapy</button>' +
         '</div></article></div>';
@@ -252,7 +252,7 @@
      Modals
      ====================================================== */
   var bookingEl = $('#bookingModal');
-  var bookingModal = bookingEl ? bootstrap.Modal.getOrCreateInstance(bookingEl) : null;
+  var bookingModal = (bookingEl && window.bootstrap) ? bootstrap.Modal.getOrCreateInstance(bookingEl) : null;
 
   function openBooking(concern) {
     var form = $('#m-form');
@@ -266,7 +266,7 @@
 
   var videoEl = $('#videoModal');
   var videoFrame = $('#videoIframe');
-  var videoModal = videoEl ? bootstrap.Modal.getOrCreateInstance(videoEl) : null;
+  var videoModal = (videoEl && window.bootstrap) ? bootstrap.Modal.getOrCreateInstance(videoEl) : null;
   function playVideo(id) {
     if (!videoFrame || !videoModal) return;
     videoFrame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
@@ -276,7 +276,7 @@
 
   /* Mobile menu: close first, then scroll to the section */
   var menuEl = $('#mobileMenu');
-  if (menuEl) {
+  if (menuEl && window.bootstrap) {
     var menu = bootstrap.Offcanvas.getOrCreateInstance(menuEl);
     menuEl.addEventListener('click', function (e) {
       var link = e.target.closest('a.mobile-link');
@@ -309,13 +309,22 @@
     if (e.target.closest('#toTop')) window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
   });
 
-  /* Images: fallback file, or hide the broken icon */
+  /* Images: if one fails to load, retry it a couple of times (never hide it
+     on the first failure). Only a still-missing file after retries is hidden. */
   document.addEventListener('error', function (e) {
     var img = e.target;
     if (!img || img.tagName !== 'IMG') return;
+    var tries = parseInt(img.dataset.tries || '0', 10);
     var fb = img.getAttribute('data-fallback');
-    if (fb && !img.dataset.triedFallback) { img.dataset.triedFallback = '1'; img.src = fb; }
-    else img.classList.add('is-missing');
+    if (tries < 2) {
+      img.dataset.tries = String(tries + 1);
+      var base = (img.dataset.origSrc = img.dataset.origSrc || img.getAttribute('src')).split('?')[0];
+      setTimeout(function () { img.src = base + '?r=' + Date.now(); }, 400 * (tries + 1));
+    } else if (fb && !img.dataset.triedFallback) {
+      img.dataset.triedFallback = '1'; img.src = fb;
+    } else {
+      img.classList.add('is-missing');
+    }
   }, true);
 
   /* ======================================================
@@ -448,8 +457,12 @@
   initCounters();
   updateScroll();
 
-  // Images that already failed before this script ran
-  $$('img').forEach(function (img) {
-    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) img.dispatchEvent(new Event('error'));
+  // After everything has loaded, retry any image that really failed
+  window.addEventListener('load', function () {
+    $$('img').forEach(function (img) {
+      if (img.getAttribute('src') && img.complete && img.naturalWidth === 0) img.dispatchEvent(new Event('error'));
+    });
+    // Safety net: reveal anything already on screen that the observer missed
+    $$('[data-reveal]:not(.is-visible)').forEach(function (el) { if (inView(el)) el.classList.add('is-visible'); });
   });
 })();
