@@ -560,3 +560,188 @@ html.js .steps li.is-active::before { animation: pop 0.5s var(--ease) both; }
   [data-reveal] { opacity: 1 !important; transform: none !important; clip-path: none !important; }
   .hero__bg { transform: none !important; }
 }
+
+/* ==========================================================================
+   GROWING TOGETHER: EVERY CHILD'S JOURNEY IS UNIQUE
+   ========================================================================== */
+.section--journey {
+  background: #FAF8F5;
+  border-top: 1px solid #E7E3DB;
+  border-bottom: 1px solid #E7E3DB;
+  padding: 5rem 0;
+}
+
+.journey-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1px solid #E7E3DB;
+  color: #E56A55;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.journey-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #E56A55;
+  display: inline-block;
+}
+
+.journey-title {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  color: #1E3A34;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.journey-subtitle {
+  color: var(--clc-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.journey-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem 1.6rem 1.6rem;
+  border: 1px solid #E7E3DB;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+  overflow: hidden;
+}
+
+.journey-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(229, 106, 85, 0.12);
+  border-color: rgba(229, 106, 85, 0.4);
+}
+
+.journey-notch {
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 4px;
+  background: #E56A55;
+  border-radius: 0 0 4px 4px;
+  opacity: 0.85;
+  transition: opacity 0.25s ease;
+}
+
+.journey-card:hover .journey-notch {
+  opacity: 1;
+}
+
+.journey-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+}
+
+.journey-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  transition: transform 0.25s var(--ease);
+}
+
+.journey-card:hover .journey-icon-wrap {
+  transform: scale(1.06);
+}
+
+.journey-icon-wrap--rose {
+  background: #FFF1F0;
+  color: #E56A55;
+  border: 1px solid #FFE4E2;
+}
+
+.journey-icon-wrap--teal {
+  background: #EBF8F6;
+  color: #2A7F73;
+  border: 1px solid #D5F1EC;
+}
+
+.journey-icon-wrap--amber {
+  background: #FFFBEB;
+  color: #D97706;
+  border: 1px solid #FDE68A;
+}
+
+.journey-icon-wrap--indigo {
+  background: #EEF2FF;
+  color: #4F46E5;
+  border: 1px solid #E0E7FF;
+}
+
+.journey-step-num {
+  font-family: var(--font-body);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #E5E1D8;
+  letter-spacing: -0.02em;
+}
+
+.journey-step-h3 {
+  font-family: var(--font-head);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1E3A34;
+  margin-bottom: 0.75rem;
+}
+
+.journey-step-desc {
+  color: var(--clc-muted);
+  font-size: 0.925rem;
+  line-height: 1.55;
+  margin-bottom: 1.75rem;
+}
+
+.journey-card-footer {
+  border-top: 1px solid #F1EFEA;
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--clc-ink);
+  transition: color 0.2s ease;
+}
+
+.journey-card:hover .journey-card-footer {
+  color: #E56A55;
+}
+
+.journey-card-footer i {
+  font-size: 0.95rem;
+  color: var(--clc-muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.journey-card:hover .journey-card-footer i {
+  color: #E56A55;
+  transform: translate(2px, -2px);
+}
